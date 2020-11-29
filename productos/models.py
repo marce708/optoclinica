@@ -1,22 +1,21 @@
 from django.db import models
 
-
+#@TODO ver Tutorial Youtube
 class Producto(models.Model):
 
     LADO_OPCIONES = (
-        ('izquierdo', 'Izquierdo'),
-        ('derecho', 'Derecho')
+        ('lado_izquierdo', 'izquierdo'),
+        ('lado_derecho', 'derecho')
     )
     DISTANCIA_OPCIONES = (
-        ('lejos', 'Lejos'),
-        ('cerca', 'Cerca')
+        ('dist_lejos', 'lejos'),
+        ('dist_cerca', 'cerca')
     )
 
     nombre = models.CharField(max_length=100, unique=True)
     codigo_producto = models.CharField(max_length=100, blank=True, null=True)
     precio = models.DecimalField(max_digits=14, decimal_places=2, default=0.0)
-    # Modificar stock (todo)
-    stock = models.PositiveIntegerField(blank=True, null=True, default=1)
+    stock = models.PositiveIntegerField(blank=True, null=True, default=1) # @TODO Modificar stock 
 
     armazon = models.BooleanField(default=False)
     lente = models.BooleanField(default=False)
@@ -38,5 +37,6 @@ class Producto(models.Model):
         # verbose_name="Distancia"
     )
 
+    #Define COMO se muestra una tabla dentro de la interfaz de manejo de la base de datos.
     def __str__(self):
-        return f"Nombre: {self.nombre} / Codigo: {self.codigo_producto} / Precio : {self.precio}"
+      return f"Nombre: {self.nombre} / Codigo: {self.codigo_producto} / Precio : {self.precio}"

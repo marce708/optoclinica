@@ -1,0 +1,2 @@
+en esta carpeta poner la navBar para que la vean todas
+las aplicaciones, pero menos la pantalla de loguin.
