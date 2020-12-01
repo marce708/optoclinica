@@ -1,0 +1,34 @@
+{% extends 'productos/main.html'%}
+{% block content %}
+<br>
+<div class="row"></div>
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Lista de Productos</h5>
+        </div>
+        <div class="card card-body">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Stock</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for producto in productos %}
+                    <tr>
+                        <th scope="row">{{producto.id}}</td>
+                        <td>{{producto.nombre}}</td>
+                        <td>{{producto.precio}}</td>
+                        <td>{{producto.stock}}</td>
+                    </tr>    
+                    {% endfor %}
+                </tbody>
+              </table>
+          
+        </div>
+    </div>
+    
+{% endblock %}

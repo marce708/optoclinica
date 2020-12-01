@@ -1,21 +1,29 @@
 from django.db import models
+from uuid import uuid4;
 
-#@TODO ver Tutorial Youtube
+#@ver Tutorial Youtube
 class Producto(models.Model):
+    
+    id = models.UUIDField(primary_key=True,
+                          default=uuid4,
+                          editable=False,
+                          verbose_name="UUID"
+                          )
 
     LADO_OPCIONES = (
-        ('lado_izquierdo', 'izquierdo'),
-        ('lado_derecho', 'derecho')
+        ('izquierdo', 'izquierdo'),
+        ('derecho', 'derecho')
     )
+    
     DISTANCIA_OPCIONES = (
-        ('dist_lejos', 'lejos'),
-        ('dist_cerca', 'cerca')
+        ('lejos', 'lejos'),
+        ('cerca', 'cerca')
     )
 
     nombre = models.CharField(max_length=100, unique=True)
     codigo_producto = models.CharField(max_length=100, blank=True, null=True)
     precio = models.DecimalField(max_digits=14, decimal_places=2, default=0.0)
-    stock = models.PositiveIntegerField(blank=True, null=True, default=1) # @TODO Modificar stock 
+    stock = models.PositiveIntegerField(blank=True, null=True, default=1) # @Modificar stock 
 
     armazon = models.BooleanField(default=False)
     lente = models.BooleanField(default=False)
@@ -39,4 +47,4 @@ class Producto(models.Model):
 
     #Define COMO se muestra una tabla dentro de la interfaz de manejo de la base de datos.
     def __str__(self):
-      return f"Nombre: {self.nombre} / Codigo: {self.codigo_producto} / Precio : {self.precio}"
+      return f"Nombre: {self.nombre} / id: {self.id} / Codigo: {self.codigo_producto} / Precio : {self.precio}"

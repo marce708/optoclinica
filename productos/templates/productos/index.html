@@ -1,9 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>OPTOCLINICA</title>
-</head>
-<body>
-    <p> HOME / INICIO </p>
-</body>
-</html>
+{%  extends 'productos/main.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>HOME de PRODUCTOS</h1>
+    <h2>PRECONDICIONES</h2>
+    <p> Los productos ya estan cargados en la base de datos.</p>
+    <p> Los productos solo pueden ser leidos. No pueden ser creados, modificados ni eliminados<br>
+        por nuestra implementacion del sistema. Los casos de creacion, modificacion y eliminacion<br>
+        se demuestran en otra aplicacion donde el enunciado las solicite.</p>
+    </p>
+{% endblock %}
